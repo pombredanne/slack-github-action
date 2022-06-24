@@ -66,17 +66,6 @@ module.exports = async function slackSend(core) {
 
     let webResponse;
 
-    if (payload) {
-      try {
-        // confirm it is valid json
-        payload = JSON.parse(payload);
-      } catch (e) {
-        // passed in payload wasn't valid json
-        console.error('passed in payload was invalid JSON');
-        throw new Error('Need to provide valid JSON payload');
-      }
-    }
-
     if (typeof botToken !== 'undefined' && botToken.length > 0) {
       const message = core.getInput('slack-message') || '';
       const channelId = core.getInput('channel-id') || '';
