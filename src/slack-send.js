@@ -103,7 +103,7 @@ module.exports = async function slackSend(core) {
       } catch (err) {
         console.log('axios post failed, double check the payload being sent includes the keys Slack expects');
         console.log(payload);
-        // console.log(err);
+        console.log(err);
 
         if (err.response) {
           core.setFailed(err.response.data);
